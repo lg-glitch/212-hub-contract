@@ -28,7 +28,7 @@
 
 /** The contract's own version, so a mismatch is diagnosable from a log line
  *  rather than from guessing which side is stale. */
-export const CONTRACT_VERSION = '1.0.0';
+export const CONTRACT_VERSION = '1.0.1';
 
 /**
  * Every endpoint the hub exposes to 212RS.
@@ -200,8 +200,14 @@ export interface QboInvoiceResult {
 export interface WarrantyRollupProject {
   hubProjectId: string;
   callbacks: number;
-  lastCallbackAt?: string;
-  openCallbacks?: number;
+  /** What the callbacks on this project have cost us since handover. The whole
+   *  point of the rollup: a job is not finished when it is handed over, it is
+   *  finished when it stops costing money. */
+  costCents: number;
+  trades?: string[];
+  /** Days from handover to the first callback. A low number says the work was
+   *  wrong on the day; a high one says something wore out. */
+  firstCallbackDays?: number;
 }
 
 export interface WarrantyRollupInput {

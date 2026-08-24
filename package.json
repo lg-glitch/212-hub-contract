@@ -1,6 +1,6 @@
 {
   "name": "@212/hub-contract",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The wire contract between 212 Residential Services and the 212 Hub. Types only — no runtime dependencies.",
   "license": "UNLICENSED",
   "private": true,
